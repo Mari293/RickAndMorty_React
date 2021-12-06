@@ -9,7 +9,7 @@ export const Select = ({options, select}) => {
                 <option value="selectAllCharacter">All Characters</option>
                 {
                     options.map(element=>(
-                        <option key={element.id} value={element.name}>{element.name}</option>
+                        <option key={element.id} value={element.id}>{element.name}</option>
                     ))
                 }
             </select>

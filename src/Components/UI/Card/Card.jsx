@@ -1,8 +1,8 @@
 import React from "react";
 import './Card.css';
 
-export const Card = (namesCharacters) =>{
-    const {name, image} = namesCharacters.namesCharacters;
+export const Card = (infoCharacter) =>{
+    const {name, image} = infoCharacter.infoCharacter;
 
     return(
         <div className="card" >
