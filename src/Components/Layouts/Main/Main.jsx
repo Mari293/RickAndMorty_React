@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Select } from "../../UI/Select/Select";
 import { Card } from "../../UI/Card/Card";
 import imgRick from "../../../Images/rickSanchez.png";
 
-
 export const Main = () => {
-    const [data, setData] = useState({name: "Rick Sanchez", image:imgRick});
+    
+    const [nameCharacters, setCharacters] = useState([{name:'Rick Sanchez', image:imgRick}]);
 
     const URL = 'https://rickandmortyapi.com/api/character/';
-
-    const FetchApi=()=> {    
+    
+    const fetchApi = () => {
         fetch(URL)
-        .then(response=>response.json())
-        .then(data=>setData(data.results[0]))
+        .then(response => response.json())
+        .then(data=>setCharacters(data.results))
     }
+
+    const valueSelect = (event) => {
+        if(event.target.value == 'selectCharacter'){
+            console.log("Puto");
+        }
+    }
+    
+    useEffect(() =>{
+        fetchApi('')
+    },[])
+
     return(
-        <>
-            <Select event={FetchApi}/>
-            <Card data={data}/>
-        </>
+        <main>
+            <Select options={nameCharacters} select={valueSelect}/>
+            <Card namesCharacters={nameCharacters} />
+        </main>
     )
 }

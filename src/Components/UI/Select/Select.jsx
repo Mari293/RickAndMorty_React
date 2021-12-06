@@ -1,12 +1,17 @@
+import React from 'react';
 import './Select.css';
 
-export const Select = ({event}) => {
-
+export const Select = ({options, select}) => { 
     return(
         <>
-            <select name="option" className="selectCharacter" onChange={event}>
-                <option value="selectCharacter">Select Character</option>
+            <select className="selectCharacter" onChange={select}>
+                <option value="selectCharacter">Select a Character</option>
                 <option value="selectAllCharacter">All Characters</option>
+                {
+                    options.map(element=>(
+                        <option key={element.id} value={element.name}>{element.name}</option>
+                    ))
+                }
             </select>
         </>
     )
