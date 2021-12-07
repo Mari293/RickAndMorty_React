@@ -1,1 +1,2 @@
-main{height: 100%;display: flex;align-items: center;flex-direction: column;}
+main{height: 100vh;display: flex;align-items: center;flex-direction: column;justify-content: space-evenly;}
+.cards{height: 50vh;display: flex;justify-content: center;flex-wrap: wrap; align-items: center;}
