@@ -2,8 +2,8 @@ import './Header.css';
 
 export const Header = () => {
     return (
-        <div className="header">
+        <header>
             <h1>Rick and Morty</h1>
-        </div>
+        </header>
     )
 }

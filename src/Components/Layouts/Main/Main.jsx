@@ -32,13 +32,11 @@ export const Main = () => {
             fetchApi("")
             setValue(true);
             setEmpty(false)
-            console.log(empty);
         }
         else{
             fetchApi(event.target.value)
             setEmpty(false)
             setValue(false);
-            console.log(empty);
         }
     }
     
@@ -52,7 +50,7 @@ export const Main = () => {
             <Select options={nameCharacters} select={valueSelect}/>
             <div className="cards">
                 {
-                    empty===true?(console.log("prueba")):(select===true?(
+                    empty===true?(console.log("Funciona")):(select===true?(
                         nameCharacters.map(element => (
                             <Card key={element.id} infoCharacter={element} />
                         ))
