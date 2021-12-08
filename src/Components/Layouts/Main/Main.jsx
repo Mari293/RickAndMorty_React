@@ -6,7 +6,8 @@ import "./Main.css";
 export const Main = () => {
     
     const [nameCharacters, setCharacters] = useState([]);
-    const [nameCharacter, setCharacter] = useState({})
+    const [nameCharacter, setCharacter] = useState({});
+    const [select, setValue] = useState(false);
 
     const URL = 'https://rickandmortyapi.com/api/character/';
     
@@ -16,22 +17,22 @@ export const Main = () => {
         .then(data=>{
             if(id !== ""){
                 setCharacter(data)
-                console.log(data)
             }
             else{
                 setCharacters(data.results)
-                console.log(data.results)
             }
         })
     }
 
     const valueSelect = (event) => {
         
-        if(event.target.value === 'selectCharacter'){ }
+        if(event.target.value === 'selectCharacter'){}
         else if (event.target.value === 'selectAllCharacter'){
+            setValue(true);
             fetchApi("")
         }
         else{
+            setValue(false);
             fetchApi(event.target.value)
         }
     }
@@ -44,15 +45,14 @@ export const Main = () => {
         <main>
             <Select options={nameCharacters} select={valueSelect}/>
             <div className="cards">
-                <Card infoCharacter={nameCharacter} />
-            </div>
-            {/* <section>
                 {
-                    nameCharacters.map(element => (
-                        <Card infoCharacter={element} />
-                    ))
+                    select===true?(
+                        nameCharacters.map(element => (
+                            <Card infoCharacter={element} />
+                        ))
+                    ): <Card infoCharacter={nameCharacter}/>
                 }
-            </section> */}
+            </div>
         </main>
     )
 }
