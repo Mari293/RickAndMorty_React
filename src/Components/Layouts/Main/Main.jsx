@@ -8,6 +8,7 @@ export const Main = () => {
     const [nameCharacters, setCharacters] = useState([]);
     const [nameCharacter, setCharacter] = useState({});
     const [select, setValue] = useState(false);
+    const [empty, setEmpty] = useState(false);
 
     const URL = 'https://rickandmortyapi.com/api/character/';
     
@@ -23,22 +24,27 @@ export const Main = () => {
             }
         })
     }
-
+    
     const valueSelect = (event) => {
         
-        if(event.target.value === 'selectCharacter'){}
+        if(event.target.value === 'selectCharacter'){setEmpty(true)}
         else if (event.target.value === 'selectAllCharacter'){
-            setValue(true);
             fetchApi("")
+            setValue(true);
+            setEmpty(false)
+            console.log(empty);
         }
         else{
-            setValue(false);
             fetchApi(event.target.value)
+            setEmpty(false)
+            setValue(false);
+            console.log(empty);
         }
     }
     
     useEffect(() =>{
         fetchApi('')
+        setEmpty(true)
     },[])
 
     return(
@@ -46,11 +52,19 @@ export const Main = () => {
             <Select options={nameCharacters} select={valueSelect}/>
             <div className="cards">
                 {
-                    select===true?(
+                    empty===true?(console.log("prueba")):(select===true?(
                         nameCharacters.map(element => (
-                            <Card infoCharacter={element} />
+                            <Card key={element.id} infoCharacter={element} />
                         ))
-                    ): <Card infoCharacter={nameCharacter}/>
+                    ): <Card infoCharacter={nameCharacter}/> )
+
+                    
+                    // empty===false? (select===true?(
+                    //     nameCharacters.map(element => (
+                    //         <Card infoCharacter={element} />
+                    //     ))
+                    // ): <Card infoCharacter={nameCharacter}/> ) : console.log("prueba") 
+                    
                 }
             </div>
         </main>
