@@ -57,14 +57,6 @@ export const Main = () => {
                             <Card key={element.id} infoCharacter={element} />
                         ))
                     ): <Card infoCharacter={nameCharacter}/> )
-
-                    
-                    // empty===false? (select===true?(
-                    //     nameCharacters.map(element => (
-                    //         <Card infoCharacter={element} />
-                    //     ))
-                    // ): <Card infoCharacter={nameCharacter}/> ) : console.log("prueba") 
-                    
                 }
             </div>
         </main>
