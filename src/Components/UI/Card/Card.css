@@ -1,5 +1,5 @@
 .card{display: flex; align-items: center; justify-content: space-evenly; width: 25rem; background: #171820;border-radius: 2rem;height: 18.2rem; margin: 1.5rem;}
 .card-information{display: flex; flex-direction: column; color: #fff; align-items: center; justify-content: space-evenly; height: 15rem; width: 19.5rem;}
-.line{position:relative;left: -20.5px;background: #1E5F74; width: 1.6rem; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem;height: 18.2rem}
-.name-character{font-size: 1.48rem; color:#fff}
+.line{position:relative;left: -23.9px;background: #1E5F74; width: 1.6rem; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem;height: 18.2rem}
+.name-character{font-size: 1.45rem; color:#fff}
 .image-character{width: 55%; border-radius: 1.5rem;}
